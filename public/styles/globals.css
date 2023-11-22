@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Press+Start+2P&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Press Start 2P', cursive; */
+}
+
+html, body {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+body {
+    background-image: url(../assets/images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+p {
+    margin: 0;
+}
+
+.bc-opaco {
+    background-color:#252323A6;
+}
+
+.bc-black {
+    background-color: #252323;
+}
+
+.bc-yellow {
+    background-color:#FFD700;
+}
+
+.txt-white {
+    color: #FBFFFE;
+}
+
+.txt-yellow{
+    color: #FFD700;
+}
+
+.txt-red{
+    color: #EB2C1E;
+}
+
+.txt-green{
+    color: #1EEB6D;
+}
+
+.txt-black {
+    color: #252323;
+}
+
+.title-font {
+    font-family: 'Press Start 2P','Open Sans', sans-serif;
+}
+
+.border-white {
+    border: 1px solid #FBFFFE;
+}
+
+.border-white--light {
+    border: 1px solid #fbfffe24;
+}
+
+.btn {
+    transition: 200ms;
+}
+
+.btn:disabled {
+    background-color: rgba(255, 215, 0, .5) !important;
+}
+
+.btn:hover {
+    filter: brightness(.85) !important;
+    background-color: #FFD700 !important;
+}
+
+.game-container {
+    flex: 1 !important;
+}
+
+.target {
+    width: 144px !important;
+    height: 144px !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 1000ms ease;
+}
+
+#alvo {
+    z-index: 99999;
+}
+
+.game-container:hover {
+    cursor: url(../assets/icons/crosshair.svg),auto;
+}
+
+#tempo_bar {
+    transition: width 500ms linear;
+}
