@@ -10,7 +10,8 @@
     <script src="js/script.js" defer></script>
 </head>
 <body class="w-100 h-100 d-flex flex-column">
-    <header class="w-100 p-4 bc-opaco txt-white d-flex flex-column flex-lg-row align-items-center justify-content-evenly" style="font-size: 14px;">
+    <h1 style="color: white;">Oi, {{ Auth::check() ? Auth::user() : "" }}</h1>
+    <!-- <header class="w-100 p-4 bc-opaco txt-white d-flex flex-column flex-lg-row align-items-center justify-content-evenly" style="font-size: 14px;">
         <div class="text-center text-lg-start">
             <p id="player" class="p-3 p-lg-0 title-font txt-yellow">Galatic</p>
         </div>
@@ -51,7 +52,7 @@
             Natálya Gabrielle Nunes de Azevedo<br>
             Tiago Rodrigues dos Santos
         </p>
-    </footer>
+    </footer> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
