@@ -15,3 +15,4 @@ Route::get('/game', function() {
 
 Route::post('/player/new', [PlayerController::class, 'create']);
 Route::post('/session/new', [LoginController::class, 'authenticate']);
+Route::post('/ranking/{player_id}', [PartidaController::class, 'createPartida']); 

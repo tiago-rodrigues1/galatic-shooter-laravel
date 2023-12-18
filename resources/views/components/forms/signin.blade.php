@@ -17,7 +17,7 @@
     <div class="vstack p-4">
         <label class="mb-2 txt-white fw-bold" for="signin-password">password</label>
         <input type="password" class="p-2 txt-white bc-opaco border-white rounded-2" type="text" id="signin-password" name="password" required>
-        <p class="mt-4 txt-white text-center">Não está cadastrado ? <a class="txt-yellow" href="#" id="signup-link">Crie sua conta</a></p>
+        <p class="mt-4 txt-white text-center">Não está cadastrado? <a class="txt-yellow" href="#" id="signup-link">Crie sua conta</a></p>
     </div>
     <button type="submit" class="w-100 btn p-4 bc-yellow border-0 txt-black rounded-bottom fw-bold">Entrar</button>
 </form>
