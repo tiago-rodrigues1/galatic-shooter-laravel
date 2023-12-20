@@ -24,4 +24,10 @@ class Player extends Authenticatable {
             return null;
         }
     }
+    public function usuario(){
+        return $this->belongsTo(User::class);
+    }
+    public function partidas(){
+        return $this->hasMany(Partida::class);
+    }
 }
