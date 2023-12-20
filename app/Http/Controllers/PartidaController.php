@@ -18,7 +18,9 @@ class PartidaController extends Controller
     }
 
     public function ranking(Request $request) {
-
+        $partidas = Partida::all();
+    
+        return view('ranking', ['partidas' => $partidas]);
     }
 
 }

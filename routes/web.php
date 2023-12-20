@@ -15,4 +15,8 @@ Route::get('/game', function() {
 
 Route::post('/player/new', [PlayerController::class, 'create']);
 Route::post('/session/new', [LoginController::class, 'authenticate']);
-Route::get('/ranking', [PartidaController::class, 'ranking']); 
+//Route::get('/ranking', [PartidaController::class, 'ranking']); 
+
+Route::get('/ranking', function() {
+    return view('ranking');
+});

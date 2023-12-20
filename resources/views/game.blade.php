@@ -21,8 +21,8 @@
             </div>
         </div>
         <div class="d-flex align-items-center gap-5">
-            <p id="acertos" class="title-font txt-green">Acertos:  </p>
-            <p id="erros" class="title-font txt-red">Erros: </p>
+            <p id="acertos" class="title-font txt-green">Acertos: 0</p>
+            <p id="erros" class="title-font txt-red">Erros: 0</p>
             <p id="tentativas" class="title-font">Tentativas: 0</p>
             <form id="form1" action="services/partida/create.php" method="get">
                 <input type="hidden" id="numAcertos" name="numAcertos" value="">

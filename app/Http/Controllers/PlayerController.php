@@ -16,7 +16,7 @@ class PlayerController extends Controller {
         $result = Player::create($request->all());
 
         if ($result) {
-            dd("ok");
+            return redirect('/welcome');
         }
     }
 }

@@ -15,7 +15,7 @@ class LoginController extends Controller {
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect('/game');
+            return redirect('/ranking');
         }
 
         return back()->withErrors([

@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-require_once("models/Partida.php");
-?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,28 +25,22 @@ require_once("models/Partida.php");
                         <th>Erros</th>
                         <th>Data</th>
                     </tr>
-                    <?php
-                        require_once "models/Partida.php";
+                        @foreach($partidas as $partida)
+    
 
-                        $partidas = Partida::listar();
-                        $i = 1;
-
-                        foreach($partidas as $p):
-                        ?>
-                        <tr style="text-align: justify;">
-                            <td><?= $i++ ?></td>
-                            <td><?= $p->jogador; ?></td>
-                            <td><?= $p->acertos; ?></td>
-                            <td><?= $p->erros; ?></td>
-                            <td><?= $p->data_hora; ?></td>
+                        <tr style="text-align: justify;"> 
+                            <td>posição</td>
+                            <td>jogador</td>
+                            <td>{{ $partida->acertos }}</td>
+                            <td>{{ $partida->erros }}</td>
+                            <td>{{ $partida->data_hora }}</td>
+                           
                         </tr>
-                    <?php
-                        endforeach;
-                    ?>
+                        @endforeach
                 </table>
             </div>
             
-            <button id="replay" type="button" class="mt-5 btn p-4 bc-yellow title-font border-0 txt-black rounded-bottom" >Jogar Novamente</button>
+            <button id="replay" type="button" class="mt-5 btn p-4 bc-yellow title-font border-0 txt-black rounded-bottom" >Iniciar Partida</button>
         </div>
     </main>
 
