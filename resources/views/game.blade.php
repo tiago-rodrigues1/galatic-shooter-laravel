@@ -10,10 +10,9 @@
     <script src="js/script.js" defer></script>
 </head>
 <body class="w-100 h-100 d-flex flex-column">
-    <h1 style="color: white;">Oi, {{ Auth::check() ? Auth::user() : "" }}</h1>
     <header class="w-100 p-4 bc-opaco txt-white d-flex flex-column flex-lg-row align-items-center justify-content-evenly" style="font-size: 14px;">
         <div class="text-center text-lg-start">
-            <p id="player" class="p-3 p-lg-0 title-font txt-yellow">Galatic</p>
+            <p id="player" class="p-3 p-lg-0 title-font txt-yellow">{{ Auth::check() ? Auth::user()->nome : "Galatic" }}</p>
         </div>
         <div class="col-4 d-flex align-items-center gap-3 px-4 pb-4 pb-lg-0">
             <img src="assets/icons/clock.svg" alt="Ícone de relógio">
