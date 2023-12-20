@@ -9,20 +9,20 @@ class Partida extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['jogador', 'acertos', 'erros', 'data_hora'];
+    protected $fillable = ['acertos', 'erros'];
 
-    public static function create($u) {
+    public function player() {
+        return $this->belongsTo(Player::class);
+    }
+
+    public static function create($data) {
         try {
-            $partida = new Partida($u);
-            $partida->password = Hash::make($player->password);
-
-            return $player->save();
+            $partida = new Partida($data);
+            $partida->player=Auth()::id();
+            
+            return $partida->save();
         } catch (Exception $e) {
-            dd($e);
             return null;
         }
-    }
-    public function player(){
-        return $this->belongsTo(Player::class);
     }
 }

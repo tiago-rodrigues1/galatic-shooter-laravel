@@ -8,7 +8,6 @@ class PartidaController extends Controller
 {
     public function createPartida(Request $request) {
         $request->validate([
-            'jogador' => 'required|string',
             'acertos' => 'required|numeric',
             'erros' => 'required|numeric',
         ]);
@@ -16,6 +15,10 @@ class PartidaController extends Controller
         $partida = Partida::createPartida($request->all());
         
         return redirect('/ranking');
+    }
+
+    public function ranking(Request $request) {
+
     }
 
 }
