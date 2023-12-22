@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\PartidaController;
 use App\Http\Controllers\LoginController;
 
 Route::get('/', function() {
@@ -15,8 +16,5 @@ Route::get('/game', function() {
 
 Route::post('/player/new', [PlayerController::class, 'create']);
 Route::post('/session/new', [LoginController::class, 'authenticate']);
-//Route::get('/ranking', [PartidaController::class, 'ranking']); 
+Route::get('/ranking', [PartidaController::class, 'ranking']); 
 
-Route::get('/ranking', function() {
-    return view('ranking');
-});

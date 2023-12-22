@@ -15,7 +15,7 @@
     <main class="flex-fill w-100 h-100 d-flex align-items-center vstack justify-content-center">
         <h1 class="w-100 m-0 p-4 fw-bold rounded-top text-center title-font txt-white">Ranking</h1>   
         <div class="bc-opaco d-flex flex-column card col-10 col-md-6 col-xl-4 rounded" style="width: 38rem;">
-            <p class="w-100 m-0 p-4 fw-bold bc-yellow rounded-top title-font text-center txt-black">Ranking</p>
+            <p class="w-100 m-0 p-4 fw-bold bc-yellow rounded-top title-font text-center txt-black">Sua Posição: 0º</p>
             <div class="vstack p-4">
                 <table class="txt-white">
                     <tr>
@@ -25,18 +25,24 @@
                         <th>Erros</th>
                         <th>Data</th>
                     </tr>
+                    <?php
+                    $i = 0;
+                    ?>
+                        @if($partidas == null)
+                            
+                        @else
                         @foreach($partidas as $partida)
-    
 
                         <tr style="text-align: justify;"> 
-                            <td>posição</td>
-                            <td>jogador</td>
+                            <td></td>
+                            <td>{{ $partida->player->nome }}</td>
                             <td>{{ $partida->acertos }}</td>
                             <td>{{ $partida->erros }}</td>
                             <td>{{ $partida->data_hora }}</td>
                            
                         </tr>
                         @endforeach
+                        @endif
                 </table>
             </div>
             

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Partida;
 
 class PartidaController extends Controller
 {
@@ -18,8 +19,11 @@ class PartidaController extends Controller
     }
 
     public function ranking(Request $request) {
-        $partidas = Partida::all();
-    
+        $partidas = Partida::orderBy('acertos', 'desc')
+                            ->orderBy('erros', 'asc')
+                            ->orderBy('data_hora', 'desc')    
+                            ->get();
+
         return view('ranking', ['partidas' => $partidas]);
     }
 
