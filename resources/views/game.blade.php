@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galatic Shooter</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles/globals.css">
-    <script src="js/jquery-3.7.0.min.js.js"></script>
-    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="/styles/globals.css">
 </head>
 <body class="w-100 h-100 d-flex flex-column">
     <header class="w-100 p-4 bc-opaco txt-white d-flex flex-column flex-lg-row align-items-center justify-content-evenly" style="font-size: 14px;">
@@ -21,13 +19,13 @@
             </div>
         </div>
         <div class="d-flex align-items-center gap-5">
-            <p id="acertos" class="title-font txt-green">Acertos:  </p>
-            <p id="erros" class="title-font txt-red">Erros: </p>
+            <p id="acertos" class="title-font txt-green">Acertos: 0 </p>
+            <p id="erros" class="title-font txt-red">Erros: 0</p>
             <p id="tentativas" class="title-font">Tentativas: 0</p>
-            <form id="form1" action="services/partida/create.php" method="get">
-                <input type="hidden" id="numAcertos" name="numAcertos" value="">
-                <input type="hidden" id="numErros" name="numErros" value="">
-                <input type="hidden" id="txtJogador" name="txtJogador" value="">
+            <form id="game-data" action="/partida/new" method="POST">
+                @csrf
+                <input type="hidden" id="numAcertos" name="acertos" value="">
+                <input type="hidden" id="numErros" name="erros" value="">
             </form>
         </div>
     </header>
@@ -52,6 +50,8 @@
             Tiago Rodrigues dos Santos
         </p>
     </footer> 
+    <script src="/scripts/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="/scripts/game.js"></script>
 </body>
 </html>
