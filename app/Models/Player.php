@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Database\Eloquent\Model;
 
 class Player extends Authenticatable {
     use HasFactory;
 
     protected $fillable = ['nome', 'email', 'password'];
     protected $hidden = ['password'];
+    
+    public function partidas(){
+        return $this->hasMany(Partida::class);
+    }
 
     public static function create($data) {
         try {
@@ -19,15 +22,8 @@ class Player extends Authenticatable {
             $player->password = Hash::make($player->password);
 
             return $player->save();
-        } catch (Exception $e) {
-            dd($e);
+        } catch (\Exception $e) {
             return null;
         }
-    }
-    public function usuario(){
-        return $this->belongsTo(User::class);
-    }
-    public function partidas(){
-        return $this->hasMany(Partida::class);
     }
 }
