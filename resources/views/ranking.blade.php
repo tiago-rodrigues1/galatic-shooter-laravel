@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +15,13 @@
     <main class="flex-fill w-100 h-100 d-flex align-items-center vstack justify-content-center">
         <h1 class="w-100 m-0 p-4 fw-bold rounded-top text-center title-font txt-white">Ranking</h1>   
         <div class="bc-opaco d-flex flex-column card col-10 col-md-6 col-xl-4 rounded" style="width: 38rem;">
-            <p class="w-100 m-0 p-4 fw-bold bc-yellow rounded-top title-font text-center txt-black">Ranking</p>
+            <p class="w-100 m-0 p-4 fw-bold bc-yellow rounded-top title-font text-center txt-black">
+                @if ($posicaoMaisAlta == 0)
+                    Não rankeado
+                @else
+                    Melhor colocação: {{ $posicaoMaisAlta }}º
+                @endif
+            </p>
             <div class="vstack p-4">
                 <table class="txt-white">
                     <tr>
@@ -25,22 +31,21 @@
                         <th>Erros</th>
                         <th>Data</th>
                     </tr>
-                        @foreach($partidas as $partida)
-    
-
-                        <tr style="text-align: justify;"> 
-                            <td>posição</td>
-                            <td>jogador</td>
-                            <td>{{ $partida->acertos }}</td>
-                            <td>{{ $partida->erros }}</td>
-                            <td>{{ $partida->data_hora }}</td>
-                           
+                    @forelse ($partidas as $p)
+                        <tr style="text-align: justify;">
+                            <td><?= $loop->index + 1 ?></td>
+                            <td><?= $p->player->nome; ?></td>
+                            <td><?= $p->acertos; ?></td>
+                            <td><?= $p->erros; ?></td>
+                            <td><?= date_format($p->created_at, "d/m/Y"); ?></td>
                         </tr>
-                        @endforeach
+                    @empty
+                        <tr><td>Sem partidas</td></tr>
+                    @endforelse
                 </table>
             </div>
             
-            <button id="replay" type="button" class="mt-5 btn p-4 bc-yellow title-font border-0 txt-black rounded-bottom" >Iniciar Partida</button>
+            <a href="/game" type="button" class="mt-5 btn p-4 bc-yellow title-font border-0 txt-black rounded-bottom">Jogar</a>
         </div>
     </main>
 

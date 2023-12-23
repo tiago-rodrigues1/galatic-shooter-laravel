@@ -61,10 +61,9 @@ const facade = {
         }
 
         this.props.timerInterval = setInterval(function() {
-            console.log(secondsLeft);
             $('#tempo_bar').width(`${(secondsLeft / matchSeconds) * 100}%`);
             if (secondsLeft < 0) {
-                $('#form1').submit();
+                $('#game-data').submit();
             } else {
                 secondsLeft -= 1;
             }
@@ -73,42 +72,8 @@ const facade = {
 };
 
 $(document).ready(function() {
-    let nomeJogador = "";
-    let campo = $("#nome");
-    let comecarBtn = $('#play');
-    let jogarNovamente = $("#replay");
-
-    $(campo).on('input', function() {
-        if ($(this).val() !== '0') {
-            $(comecarBtn).removeAttr("disabled");
-        }
-        else {
-            $(comecarBtn).attr('disabled');
-        }
-
-        nomeJogador = $(this).val();
-    });
-
-    $(comecarBtn).click(function() {
-        window.location.href = `galatic.html?nome=${nomeJogador}`;
-    });
-
-    $(jogarNovamente).click(function(){
-        window.location.href = `index.html`;
-    });
-    
-    $('#player').ready(function() {
-        let urlParams = window.location.search;
-
-        if (urlParams) {
-            let urlParamsJogador = urlParams.split('=')[1];
-            $('#player').html(urlParamsJogador);
-            $('#txtJogador').attr('value', urlParamsJogador);
-        }
-    });
-
-    $('#form1').ready(function() {
-        if ($('#form1').attr('id')) {    
+    $('#game-data').ready(function() {
+        if ($('#game-data').attr('id')) {    
             $('.game-container').html('<img id="alvo" src="assets/images/alvo.png" draggable="false" class="target">');
     
             $('#explosao').hide();
@@ -127,5 +92,6 @@ $(document).ready(function() {
                 }
             });
         }
+
     });
 });

@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('partidas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('players_id')->constrained();
-            $table->string('jogador');
+            $table->foreignId('player_id')->constrained();
             $table->integer('acertos');
             $table->integer('erros');
-            $table->dateTime('data_hora');
             $table->timestamps();
         });
     }
