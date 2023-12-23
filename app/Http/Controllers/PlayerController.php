@@ -16,7 +16,7 @@ class PlayerController extends Controller {
         $result = Player::create($request->all());
 
         if ($result) {
-            return redirect('/welcome');
+            return redirect("/ranking");
         }
     }
 }

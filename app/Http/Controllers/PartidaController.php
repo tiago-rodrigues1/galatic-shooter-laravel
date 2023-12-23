@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Partida;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class PartidaController extends Controller
-{
-    public function createPartida(Request $request) {
-        $request->validate([
-            'acertos' => 'required|numeric',
-            'erros' => 'required|numeric',
-        ]);
-
-        $partida = Partida::createPartida($request->all());
+class PartidaController extends Controller {
+    public function create(Request $request) {
+        Partida::create($request->all());
         
         return redirect('/ranking');
     }
 
-    public function ranking(Request $request) {
-        $partidas = Partida::orderBy('acertos', 'desc')
-                            ->orderBy('erros', 'asc')
-                            ->orderBy('data_hora', 'desc')    
-                            ->get();
+    public function ranking() {
+        $partidas = Partida::listar();
+        $posicaoMaisAlta = 0;
 
-        return view('ranking', ['partidas' => $partidas]);
+        for ($i = 1; $i <= count($partidas); $i++) {
+            if (Auth::id() == $partidas[$i]->player->id) {
+                $posicaoMaisAlta = $i;
+                break;
+            }
+        }
+
+        return view("ranking", compact('partidas', 'posicaoMaisAlta'));
     }
 
 }
