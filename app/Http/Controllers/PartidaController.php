@@ -17,9 +17,9 @@ class PartidaController extends Controller {
         $partidas = Partida::listar();
         $posicaoMaisAlta = 0;
 
-        for ($i = 1; $i <= count($partidas); $i++) {
+        for ($i = 0; $i < count($partidas); $i++) {
             if (Auth::id() == $partidas[$i]->player->id) {
-                $posicaoMaisAlta = $i;
+                $posicaoMaisAlta = $i + 1;
                 break;
             }
         }
